@@ -1,0 +1,104 @@
+{
+    "info": {
+      "name": "GGG",
+      "description": "Collection for testing the POS system API.",
+      "_postman_id": "c6e75c99-b905-4b8c-9085-65cd660e4b59",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Customers",
+        "item": [
+          {
+            "name": "Create Customer",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"Juan Pérez\",\n  \"email\": \"juan.perez@example.com\",\n  \"phone\": \"321-654-9870\",\n  \"address\": \"123 Main St, Bogotá, Colombia\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/api/customers",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "customers"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get All Customers",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:3000/api/customers",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "customers"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Customer By ID",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:3000/api/customers/:id",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "customers", ":id"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Customer",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"Juan Pérez\",\n  \"email\": \"juan.perez_updated@example.com\",\n  \"phone\": \"321-111-2222\",\n  \"address\": \"456 New St, Bogotá, Colombia\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/api/customers/:id",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "customers", ":id"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Customer",
+            "request": {
+              "method": "DELETE",
+              "url": {
+                "raw": "http://localhost:3000/api/customers/:id",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "customers", ":id"]
+              }
+            },
+            "response": []
+          }
+        ]
+      }
+      
+    ]
+  }
+  
