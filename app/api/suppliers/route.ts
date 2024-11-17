@@ -11,7 +11,10 @@ export async function POST(req: Request) {
 
     // Validar campos obligatorios
     if (!data.store_id || !data.name || !data.contact) {
-      return NextResponse.json({ error: 'Faltan campos obligatorios' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Faltan campos obligatorios' },
+        { status: 400 },
+      );
     }
 
     const newSupplier = new Supplier(data);
@@ -19,7 +22,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json(savedSupplier, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al crear el proveedor', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al crear el proveedor', details: error },
+      { status: 500 },
+    );
   }
 }
 
@@ -30,6 +36,9 @@ export async function GET() {
     const suppliers = await Supplier.find();
     return NextResponse.json(suppliers, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al obtener los proveedores', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al obtener los proveedores', details: error },
+      { status: 500 },
+    );
   }
 }

@@ -16,7 +16,7 @@ export default async function InvoicesTable({
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
-        <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
+        <div className="bg-gray-50 rounded-lg p-2 md:pt-0">
           <div className="md:hidden">
             {invoices?.map((invoice) => (
               <div
@@ -27,7 +27,9 @@ export default async function InvoicesTable({
                   <div>
                     <div className="mb-2 flex items-center">
                       <Image
-                        src={invoice.image_url === 'N/A' ? '' : invoice.image_url}
+                        src={
+                          invoice.image_url === 'N/A' ? '' : invoice.image_url
+                        }
                         className="mr-2 rounded-full"
                         width={28}
                         height={28}
@@ -35,7 +37,7 @@ export default async function InvoicesTable({
                       />
                       <p>{invoice.name}</p>
                     </div>
-                    <p className="text-sm text-gray-500">{invoice.email}</p>
+                    <p className="text-gray-500 text-sm">{invoice.email}</p>
                   </div>
                   <InvoiceStatus status={invoice.status} />
                 </div>
@@ -54,7 +56,7 @@ export default async function InvoicesTable({
               </div>
             ))}
           </div>
-          <table className="hidden min-w-full text-gray-900 md:table">
+          <table className="text-gray-900 hidden min-w-full md:table">
             <thead className="rounded-lg text-left text-sm font-normal">
               <tr>
                 <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
@@ -86,7 +88,9 @@ export default async function InvoicesTable({
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">
                       <Image
-                        src={invoice.image_url === 'N/A' ? '' : invoice.image_url}
+                        src={
+                          invoice.image_url === 'N/A' ? '' : invoice.image_url
+                        }
                         className="rounded-full"
                         width={28}
                         height={28}

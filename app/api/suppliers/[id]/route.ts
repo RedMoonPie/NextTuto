@@ -5,7 +5,10 @@ import connectToDatabase from '@/app/lib/mongodb';
 import Supplier from '@/app/models/Supplier';
 
 // GET: Obtener un proveedor por ID
-export async function GET(req: Request, { params }: { params: { id: string } }) {
+export async function GET(
+  req: Request,
+  { params }: { params: { id: string } },
+) {
   try {
     await connectToDatabase();
     const { id } = params;
@@ -16,17 +19,26 @@ export async function GET(req: Request, { params }: { params: { id: string } }) 
 
     const supplier = await Supplier.findById(id);
     if (!supplier) {
-      return NextResponse.json({ error: 'Proveedor no encontrado' }, { status: 404 });
+      return NextResponse.json(
+        { error: 'Proveedor no encontrado' },
+        { status: 404 },
+      );
     }
 
     return NextResponse.json(supplier, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al obtener el proveedor', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al obtener el proveedor', details: error },
+      { status: 500 },
+    );
   }
 }
 
 // PUT: Actualizar un proveedor por ID
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
+export async function PUT(
+  req: Request,
+  { params }: { params: { id: string } },
+) {
   try {
     await connectToDatabase();
     const { id } = params;
@@ -36,19 +48,30 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
       return NextResponse.json({ error: 'ID no válido' }, { status: 400 });
     }
 
-    const updatedSupplier = await Supplier.findByIdAndUpdate(id, data, { new: true });
+    const updatedSupplier = await Supplier.findByIdAndUpdate(id, data, {
+      new: true,
+    });
     if (!updatedSupplier) {
-      return NextResponse.json({ error: 'Proveedor no encontrado' }, { status: 404 });
+      return NextResponse.json(
+        { error: 'Proveedor no encontrado' },
+        { status: 404 },
+      );
     }
 
     return NextResponse.json(updatedSupplier, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al actualizar el proveedor', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al actualizar el proveedor', details: error },
+      { status: 500 },
+    );
   }
 }
 
 // DELETE: Eliminar un proveedor por ID
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
+export async function DELETE(
+  req: Request,
+  { params }: { params: { id: string } },
+) {
   try {
     await connectToDatabase();
     const { id } = params;
@@ -59,11 +82,20 @@ export async function DELETE(req: Request, { params }: { params: { id: string } 
 
     const deletedSupplier = await Supplier.findByIdAndDelete(id);
     if (!deletedSupplier) {
-      return NextResponse.json({ error: 'Proveedor no encontrado' }, { status: 404 });
+      return NextResponse.json(
+        { error: 'Proveedor no encontrado' },
+        { status: 404 },
+      );
     }
 
-    return NextResponse.json({ message: 'Proveedor eliminado exitosamente' }, { status: 200 });
+    return NextResponse.json(
+      { message: 'Proveedor eliminado exitosamente' },
+      { status: 200 },
+    );
   } catch (error) {
-    return NextResponse.json({ error: 'Error al eliminar el proveedor', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al eliminar el proveedor', details: error },
+      { status: 500 },
+    );
   }
 }

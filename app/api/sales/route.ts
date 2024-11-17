@@ -10,8 +10,18 @@ export async function POST(req: Request) {
     const data = await req.json();
 
     // Validar campos obligatorios
-    if (!data.store_id || !data.user_id || !data.products || !data.total_amount || !data.payment_method || !data.invoice_type) {
-      return NextResponse.json({ error: 'Faltan campos obligatorios' }, { status: 400 });
+    if (
+      !data.store_id ||
+      !data.user_id ||
+      !data.products ||
+      !data.total_amount ||
+      !data.payment_method ||
+      !data.invoice_type
+    ) {
+      return NextResponse.json(
+        { error: 'Faltan campos obligatorios' },
+        { status: 400 },
+      );
     }
 
     const newSale = new Sale(data);
@@ -19,7 +29,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json(savedSale, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al crear la venta', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al crear la venta', details: error },
+      { status: 500 },
+    );
   }
 }
 
@@ -30,6 +43,9 @@ export async function GET() {
     const sales = await Sale.find();
     return NextResponse.json(sales, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al obtener las ventas', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al obtener las ventas', details: error },
+      { status: 500 },
+    );
   }
 }

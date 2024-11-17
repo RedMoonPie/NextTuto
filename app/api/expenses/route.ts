@@ -11,7 +11,10 @@ export async function POST(req: Request) {
 
     // Validar campos obligatorios
     if (!data.store_id || !data.amount || !data.category) {
-      return NextResponse.json({ error: 'Faltan campos obligatorios' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Faltan campos obligatorios' },
+        { status: 400 },
+      );
     }
 
     const newExpense = new Expense(data);
@@ -19,7 +22,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json(savedExpense, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al crear el egreso', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al crear el egreso', details: error },
+      { status: 500 },
+    );
   }
 }
 
@@ -30,6 +36,9 @@ export async function GET() {
     const expenses = await Expense.find();
     return NextResponse.json(expenses, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al obtener los egresos', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al obtener los egresos', details: error },
+      { status: 500 },
+    );
   }
 }

@@ -11,7 +11,10 @@ export async function GET(req: Request) {
     const inventories = await Inventory.find().populate('products.product_id');
     return NextResponse.json(inventories, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al obtener los inventarios', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al obtener los inventarios', details: error },
+      { status: 500 },
+    );
   }
 }
 
@@ -25,13 +28,19 @@ export async function POST(req: Request) {
     const productIds = data.products.map((p: any) => p.product_id);
     const existingProducts = await Product.find({ _id: { $in: productIds } });
     if (existingProducts.length !== productIds.length) {
-      return NextResponse.json({ error: 'Uno o más productos no existen' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Uno o más productos no existen' },
+        { status: 400 },
+      );
     }
 
     const newInventory = new Inventory(data);
     const savedInventory = await newInventory.save();
     return NextResponse.json(savedInventory, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al crear el inventario', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al crear el inventario', details: error },
+      { status: 500 },
+    );
   }
 }

@@ -13,7 +13,10 @@ export async function POST(req: Request) {
 
     // Validar datos básicos
     if (!data.store_id || !data.username || !data.password_hash || !data.role) {
-      return NextResponse.json({ error: 'Faltan campos obligatorios' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Faltan campos obligatorios' },
+        { status: 400 },
+      );
     }
 
     const newUser = new User(data);
@@ -21,7 +24,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json(savedUser, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al crear el usuario', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al crear el usuario', details: error },
+      { status: 500 },
+    );
   }
 }
 
@@ -32,6 +38,9 @@ export async function GET() {
     const users = await User.find();
     return NextResponse.json(users, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al obtener los usuarios', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al obtener los usuarios', details: error },
+      { status: 500 },
+    );
   }
 }

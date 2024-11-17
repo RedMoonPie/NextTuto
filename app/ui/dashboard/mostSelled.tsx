@@ -9,7 +9,7 @@ export type InfoCardProps = {
 export function MostSelled() {
   return (
     <div
-      className={`flex h-full w-full flex-col items-center rounded-xl text-white font-bold border border-color-5-500 bg-color-5-500 shadow-m`}
+      className={`flex h-full w-full flex-col items-center rounded-xl border border-color-5-500 bg-color-5-500 font-bold text-white shadow-m`}
     >
       <div className="my-1 ">5 más vendidos</div>
       <div

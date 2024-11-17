@@ -12,7 +12,7 @@ export default function SideNav() {
         className="mb-6 flex h-Sz20 flex-col items-center justify-center rounded-md bg-secondary-500 p-4 align-middle md:h-Sz20"
         href="/"
       >
-        <div className="flex mb-2 h-32 w-32 items-center justify-center rounded-full relative bg-color-4-500 md:w-32">
+        <div className="relative mb-2 flex h-32 w-32 items-center justify-center rounded-full bg-color-4-500 md:w-32">
           <Image
             src={
               'https://images.pexels.com/photos/5359802/pexels-photo-5359802.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
@@ -20,10 +20,10 @@ export default function SideNav() {
             layout="fill"
             objectFit="fill"
             alt="Dummy Image"
-            className="p-3 aspect-square rounded-full object-cover"
+            className="aspect-square rounded-full object-cover p-3"
           />
         </div>
-        <p className='text-neutral-100'>Logo Title</p>
+        <p className="text-neutral-100">Logo Title</p>
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <NavLinks />

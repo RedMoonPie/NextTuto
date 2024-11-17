@@ -5,7 +5,7 @@ import {
   HomeIcon,
   CurrencyDollarIcon,
   TruckIcon,
-  TagIcon
+  TagIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -49,11 +49,12 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              'text-neutral-100 flex h-[48px] grow items-center justify-center gap-4 rounded-xl bg-color-4-500 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-6',
+              'hover:bg-sky-100 hover:text-blue-600 flex h-[48px] grow items-center justify-center gap-4 rounded-xl bg-color-4-500 p-3 text-sm font-medium text-neutral-100 md:flex-none md:justify-start md:p-2 md:px-6',
               {
                 'bg-primary-500': pathname === link.href,
               },
-            )}          >
+            )}
+          >
             <LinkIcon className="w-6" />
             <p className="hidden md:block">{link.name}</p>
           </Link>
