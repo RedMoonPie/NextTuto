@@ -6,7 +6,10 @@ import mongoose, { Document, Model } from 'mongoose';
  * @param id - The ObjectId of the referenced document.
  * @returns A promise that resolves to true if the document exists, otherwise false.
  */
-export const validateReference = async (modelName: string, id: mongoose.Types.ObjectId): Promise<boolean> => {
+export const validateReference = async (
+  modelName: string,
+  id: mongoose.Types.ObjectId,
+): Promise<boolean> => {
   // Check if the ObjectId is valid
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return false;

@@ -30,7 +30,7 @@ const cardColors = {
 };
 
 export function InfoCard({ cardType, label, value }: InfoCardProps) {
-  const {border,bgColor,icon} = cardColors[cardType]
+  const { border, bgColor, icon } = cardColors[cardType];
   return (
     <div
       className={`flex h-full w-full items-center rounded-xl border shadow-sm ${border} shadow-m`}

@@ -11,7 +11,10 @@ export async function POST(req: Request) {
 
     // Validar campos obligatorios
     if (!data.name || !data.category || !data.barcode || !data.price) {
-      return NextResponse.json({ error: 'Faltan campos obligatorios' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Faltan campos obligatorios' },
+        { status: 400 },
+      );
     }
 
     const newProduct = new Product(data);
@@ -19,7 +22,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json(savedProduct, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al crear el producto', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al crear el producto', details: error },
+      { status: 500 },
+    );
   }
 }
 
@@ -30,6 +36,9 @@ export async function GET() {
     const products = await Product.find();
     return NextResponse.json(products, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al obtener los productos', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al obtener los productos', details: error },
+      { status: 500 },
+    );
   }
 }

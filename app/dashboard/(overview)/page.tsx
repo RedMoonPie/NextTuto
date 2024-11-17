@@ -3,10 +3,7 @@ import CardWrapper from '@/app/ui/dashboard/cards';
 
 import { lusitana } from '@/app/ui/fonts';
 import { Suspense } from 'react';
-import {
-  LatestInvoicesSkeleton,
-  CardsSkeleton,
-} from '@/app/ui/skeletons';
+import { LatestInvoicesSkeleton, CardsSkeleton } from '@/app/ui/skeletons';
 import { Metadata } from 'next';
 import { CalendarStripe } from '@/app/ui/dashboard/calendarStripeCard';
 import { QuoteOfTheDay } from '@/app/ui/dashboard/quoteOfTheDay';
@@ -101,10 +98,7 @@ export default async function Page() {
         >
           10
         </div>
-        <div
-          className="row-start-5"
-          style={{ gridArea: 'footer2' }}
-        >
+        <div className="row-start-5" style={{ gridArea: 'footer2' }}>
           <MostSelled />
         </div>
         <div

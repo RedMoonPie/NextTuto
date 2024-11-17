@@ -48,4 +48,5 @@ const StoreSchema: Schema = new Schema({
 });
 
 // Register the Store model
-export default mongoose.models.Store || mongoose.model<IStore>('Store', StoreSchema);
+export default mongoose.models.Store ||
+  mongoose.model<IStore>('Store', StoreSchema);

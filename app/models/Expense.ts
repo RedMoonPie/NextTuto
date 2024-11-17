@@ -11,12 +11,17 @@ interface IExpense extends Document {
 }
 
 const ExpenseSchema: Schema = new Schema({
-  store_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Store', required: true },
+  store_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Store',
+    required: true,
+  },
   amount: { type: Number, required: true },
   description: { type: String, required: true },
   category: { type: String, required: true },
   created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now }
+  updated_at: { type: Date, default: Date.now },
 });
 
-export default mongoose.models.Expense || mongoose.model<IExpense>('Expense', ExpenseSchema);
+export default mongoose.models.Expense ||
+  mongoose.model<IExpense>('Expense', ExpenseSchema);

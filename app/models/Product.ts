@@ -25,10 +25,11 @@ const ProductSchema: Schema = new Schema({
   price: { type: Number, required: true },
   statistics: {
     monthly_sales: { type: Number, default: 0 },
-    annual_sales: { type: Number, default: 0 }
+    annual_sales: { type: Number, default: 0 },
   },
   created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now }
+  updated_at: { type: Date, default: Date.now },
 });
 
-export default mongoose.models.Product || mongoose.model<IProduct>('Product', ProductSchema);
+export default mongoose.models.Product ||
+  mongoose.model<IProduct>('Product', ProductSchema);

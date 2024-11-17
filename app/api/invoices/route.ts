@@ -10,7 +10,10 @@ export async function POST(req: Request) {
 
     // Validar campos obligatorios
     if (!data.store_id || !data.sale_id || !data.invoice_type || !data.status) {
-      return NextResponse.json({ error: 'Faltan campos obligatorios' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Faltan campos obligatorios' },
+        { status: 400 },
+      );
     }
 
     const newInvoice = new Invoice(data);
@@ -18,7 +21,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json(savedInvoice, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al crear la factura', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al crear la factura', details: error },
+      { status: 500 },
+    );
   }
 }
 
@@ -29,6 +35,9 @@ export async function GET() {
     const invoices = await Invoice.find();
     return NextResponse.json(invoices, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al obtener las facturas', details: error }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Error al obtener las facturas', details: error },
+      { status: 500 },
+    );
   }
 }

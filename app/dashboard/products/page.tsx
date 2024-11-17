@@ -1,7 +1,6 @@
-import Breadcrumbs from "@/app/ui/invoices/breadcrumbs";
+import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 
 export default function Page() {
-  
   return (
     <main>
       <Breadcrumbs

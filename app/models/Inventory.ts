@@ -28,7 +28,7 @@ const InventorySchema: Schema = new Schema({
       stock: {
         type: Number,
         required: true,
-      }
+      },
     },
   ],
   created_at: {
@@ -44,4 +44,5 @@ const InventorySchema: Schema = new Schema({
 InventorySchema.index({ store_id: 1 }); // 1 for ascending index
 
 // Register the Inventory model
-export default mongoose.models.Inventory || mongoose.model<IInventory>('Inventory', InventorySchema);
+export default mongoose.models.Inventory ||
+  mongoose.model<IInventory>('Inventory', InventorySchema);

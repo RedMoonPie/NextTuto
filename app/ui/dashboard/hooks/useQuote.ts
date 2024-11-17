@@ -7,13 +7,7 @@ export const useQuote = (): quoteResolved => {
   const [response, setResponse] = useState({});
   const [dependency, setDependency] = useState(0);
 
-  const quote = useMemo(
-    () => async () => {
-        
-
-    },
-    [dependency],
-  );
+  const quote = useMemo(() => async () => {}, [dependency]);
 
   useEffect(() => {
     quote();
