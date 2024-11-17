@@ -22,7 +22,7 @@ const links = [
   },
   {
     name: 'Productos',
-    href: '/dashboard/invoices',
+    href: '/dashboard/products',
     icon: TagIcon,
   },
   {
