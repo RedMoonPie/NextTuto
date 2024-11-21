@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import NavLinks from '@/app/ui/dashboard/nav-links';
-import AcmeLogo from '@/app/ui/acme-logo';
 import { PowerIcon } from '@heroicons/react/24/outline';
-import { signOut } from '@/auth';
 import Image from 'next/image';
+import { signOut } from '@/auth';
 
 export default function SideNav() {
   return (
@@ -17,8 +16,8 @@ export default function SideNav() {
             src={
               'https://images.pexels.com/photos/5359802/pexels-photo-5359802.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
             }
-            layout="fill"
-            objectFit="fill"
+            fill
+            style={{objectFit:"cover"}}
             alt="Dummy Image"
             className="p-3 aspect-square rounded-full object-cover"
           />

@@ -1,7 +1,6 @@
 import {
   PiCoinsDuotone,
   PiUsersThreeDuotone,
-  PiStackMinusDuotone,
   PiTelegramLogoDuotone,
 } from 'react-icons/pi';
 

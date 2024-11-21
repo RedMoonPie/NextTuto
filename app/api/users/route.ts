@@ -2,6 +2,7 @@
 import connectToDatabase from '@/app/lib/mongodb';
 import User from '@/app/models/Users';
 import Store from '@/app/models/Store';
+import bcrypt from 'bcrypt';
 
 import { NextResponse } from 'next/server';
 
@@ -15,8 +16,9 @@ export async function POST(req: Request) {
     if (!data.store_id || !data.username || !data.password_hash || !data.role) {
       return NextResponse.json({ error: 'Faltan campos obligatorios' }, { status: 400 });
     }
-
-    const newUser = new User(data);
+    const hashedPassword = await bcrypt.hash(data.password_hash, 10);
+    const newData = {...data, password_hash: hashedPassword}
+    const newUser = new User(newData);
     const savedUser = await newUser.save();
 
     return NextResponse.json(savedUser, { status: 201 });

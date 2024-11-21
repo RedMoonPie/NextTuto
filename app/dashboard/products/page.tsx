@@ -1,19 +1,5 @@
-import Breadcrumbs from "@/app/ui/invoices/breadcrumbs";
+import ProductsTable from '@/app/ui/products/ProductsTable';
 
-export default function Page() {
-  
-  return (
-    <main>
-      <Breadcrumbs
-        breadcrumbs={[
-          { label: 'Invoices', href: '/dashboard/invoices' },
-          {
-            label: 'Create Invoice',
-            href: '/dashboard/invoices/create',
-            active: true,
-          },
-        ]}
-      />
-    </main>
-  );
+export default async function Page() {
+  return <ProductsTable />;
 }
